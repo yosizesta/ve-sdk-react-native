@@ -31,7 +31,7 @@ class FeaturesConfig {
     this.editorConfig = editorConfig;
     this.coverConfig = coverConfig;
     this.draftsConfig = draftsConfig;
-    this.coverConfig = coverConfig;
+ 
     this.gifPickerConfig = gifPickerConfig;
     this.videoDurationConfig = videoDurationConfig;
     this.enableEditorV2 = enableEditorV2;
