@@ -120,7 +120,7 @@ extension VideoEditorConfig {
 
     // Draft Configs
     static let featuresConfigDraftsConfigOptionAskToSave = "askToSave"
-    static let featuresConfigDraftsConfigOptionCloseOnSave = "closeOnSave"
+    static let featuresConfigDraftsConfigOptionСloseOnSave = "closeOnSave"
     static let featuresConfigDraftsConfigOptionAuto = "auto"
     static let featuresConfigDraftsConfigOptionDisabled = "disabled"
 
