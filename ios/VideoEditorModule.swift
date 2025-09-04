@@ -106,6 +106,7 @@ class VideoEditorModule: VideoEditor {
         let pipLaunchConfig = VideoEditorLaunchConfig(
             entryPoint: .pip,
             hostController: controller,
+            shouldCopyVideo: true,
             pipVideoItem: videoURL,
             musicTrack: nil,
             animated: true
@@ -129,6 +130,7 @@ class VideoEditorModule: VideoEditor {
             entryPoint: .trimmer,
             hostController: controller,
             videoItems: videoSources,
+            shouldCopyVideo: true,
             musicTrack: nil,
             animated: true
         )
@@ -172,6 +174,25 @@ class VideoEditorModule: VideoEditor {
         )
 
         checkLicenseAndStartVideoEditor(with: config, resolve, reject)
+    }
+
+    func openVideoEditorDrafts(
+        fromViewController controller: UIViewController,
+        _ resolve: @escaping RCTPromiseResolveBlock,
+        _ reject: @escaping RCTPromiseRejectBlock
+    ) {
+        self.currentResolve = resolve
+        self.currentReject = reject
+
+        self.currentController = controller
+
+        let config = VideoEditorLaunchConfig(
+            entryPoint: .drafts,
+            hostController: controller,
+            animated: true
+        )
+
+      checkLicenseAndStartVideoEditor(with: config, resolve, reject)
     }
 
     func checkLicenseAndStartVideoEditor(
@@ -420,7 +441,6 @@ extension VideoEditorConfig {
             self.captionsConfiguration.apiV2Key = captions.apiV2Key
         }
 
-
         if let aiClipping = featuresConfig.aiClipping, let audioTracksUrl = URL(string: aiClipping.audioTracksUrl) {
             self.aiClippingConfiguration.embeddingsDownloadUrl = aiClipping.audioDataUrl
             self.aiClippingConfiguration.musicProvider =
@@ -463,6 +483,7 @@ extension VideoEditorConfig {
         }
 
         self.recorderConfiguration.captureButtonModes = recordModes
+        self.recorderConfiguration.autoStartLocalMask = featuresConfig.cameraConfig.autoStartLocalMask
 
         self.editorConfiguration.isVideoAspectFillEnabled = featuresConfig.editorConfig.enableVideoAspectFill
 
