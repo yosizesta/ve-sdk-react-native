@@ -16,6 +16,7 @@ internal const val INPUT_PARAM_SCREEN = "screen"
 internal const val INPUT_PARAM_FEATURES_CONFIG = "featuresConfig"
 internal const val INPUT_PARAM_EXPORT_DATA = "exportData"
 internal const val INPUT_PARAM_VIDEO_SOURCES = "videoSources"
+internal const val INPUT_PARAM_TRACK_DATA = "trackData"
 
 // Exported params
 internal const val EXPORTED_VIDEO_SOURCES = "exportedVideoSources"
@@ -30,6 +31,7 @@ internal const val SCREEN_TRIMMER = "trimmer"
 internal const val SCREEN_AICLIPPING = "aiClipping"
 internal const val SCREEN_TEMPLATES = "templates"
 internal const val SCREEN_DRAFTS = "drafts"
+internal const val SCREEN_EDITOR = "editor"
 
 // Features config params
 internal const val FEATURES_CONFIG_CAPTIONS = "captions"
@@ -68,6 +70,8 @@ internal const val FEATURES_CONFIG_EDITOR_CONFIG = "editorConfig"
 internal const val FEATURES_CONFIG_EDITOR_CONFIG_ENABLE_VIDEO_ASPECT_FILL = "enableVideoAspectFill"
 internal const val FEATURES_CONFIG_EDITOR_CONFIG_SUPPORTS_COLOR_EFFECTS = "supportsColorEffects"
 internal const val FEATURES_CONFIG_EDITOR_CONFIG_SUPPORTS_VISUAL_EFFECTS = "supportsVisualEffects"
+internal const val FEATURES_CONFIG_EDITOR_CONFIG_SUPPORTS_VOICE_OVER = "supportsVoiceOver"
+internal const val FEATURES_CONFIG_EDITOR_CONFIG_SUPPORTS_AUDIO_EDITING = "supportsAudioEditing"
 
 internal const val FEATURES_CONFIG_COVER_CONFIG = "coverConfig"
 internal const val FEATURES_CONFIG_COVER_CONFIG_SUPPORTS_COVER_SCREEN = "supportsCoverScreen"
@@ -121,6 +125,11 @@ internal const val EXPORT_DATA_WATERMARK_ALIGNMENT_TOP_RIGHT = "topRight"
 internal const val EXPORT_DATA_WATERMARK_ALIGNMENT_BOTTOM_LEFT = "bottomLeft"
 internal const val EXPORT_DATA_WATERMARK_ALIGNMENT_BOTTOM_RIGHT = "bottomRight"
 
+internal const val TRACK_DATA_ID = "id"
+internal const val TRACK_DATA_TITLE = "title"
+internal const val TRACK_DATA_SUBTITLE = "subtitle"
+internal const val TRACK_DATA_LOCAL_URL = "localUrl"
+
 // Errors
 internal const val ERR_CODE_SDK_NOT_INITIALIZED = "ERR_SDK_NOT_INITIALIZED"
 internal const val ERR_CODE_SDK_LICENSE_REVOKED = "ERR_SDK_LICENSE_REVOKED"
@@ -153,8 +162,11 @@ internal const val ERR_MESSAGE_MISSING_PIP_VIDEO =
 internal const val ERR_MESSAGE_MISSING_TRIMMER_VIDEO_SOURCES =
     "Missing trimmer video sources: set correct value to $INPUT_PARAM_VIDEO_SOURCES input params"
 
+internal const val ERR_MESSAGE_MISSING_EDITOR_VIDEO_SOURCES =
+    "Missing editor video sources: set correct value to $INPUT_PARAM_VIDEO_SOURCES input params"
+
 internal const val ERR_MESSAGE_UNKNOWN_SCREEN =
-    "Invalid $INPUT_PARAM_SCREEN value: available values($SCREEN_CAMERA, $SCREEN_PIP, $SCREEN_TRIMMER)"
+    "Invalid $INPUT_PARAM_SCREEN value: available values($SCREEN_CAMERA, $SCREEN_PIP, $SCREEN_TRIMMER, $SCREEN_EDITOR, $SCREEN_DRAFTS, $SCREEN_TEMPLATES)"
 
 internal const val ERR_MESSAGE_MISSING_EXPORT_RESULT =
     "Missing export result: video export has not been completed successfully. Please try again"
