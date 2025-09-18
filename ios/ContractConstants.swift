@@ -15,6 +15,7 @@ extension VideoEditorReactNative {
     static let inputParamScreen = "screen"
     static let inputParamVideoSources = "videoSources"
     static let argExportedAudioMeta = "exportedAudioMeta"
+    static let argExportedDrafts = "exportedDraftsPath"
     static let inputParamTrackData = "trackData"
 
     static let screenCamera = "camera"

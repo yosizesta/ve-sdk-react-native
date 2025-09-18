@@ -339,12 +339,15 @@ extension VideoEditorModule {
                 let previewImageData = previewImage?.pngData()
 
                 try? previewImageData?.write(to: previewUrl)
+                let allDrafts = self.videoEditorSDK?.draftsService.getDrafts()
+                let lastDraft = allDrafts?.last
 
                 self.currentResolve?([
                     VideoEditorReactNative.argExportedVideoSources: videoUrls.compactMap { $0.path },
                     VideoEditorReactNative.argExportedPreview: previewUrl.path,
                     VideoEditorReactNative.argExportedMeta : metaUrl?.path,
-                    VideoEditorReactNative.argExportedAudioMeta: audioMetaJSON
+                    VideoEditorReactNative.argExportedAudioMeta: audioMetaJSON,
+                    VideoEditorReactNative.argExportedDrafts: lastDraft?.folderURL.path
                 ])
             } else {
                 print("Error while exporting video = \(String(describing: error))")
